@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro to Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+    </div>
+
+    <div id="list-app">
+        <p>Costco items!</p>
+        <ul>
+            <li v-for="item in costcoItems">
+
+            
+            {{ item }}
+        </li>
+        </ul>
+    </div>
+
+    <div id="if-app">
+        <span v-if="remember">buy milk</span>
+        <button v-on:click="toggleMessage">Last Item!</button>
+    </div>
+
+  
+
+    <script>
+        let myVue =  new Vue({
+            el: "#app",
+            data: {
+                message: "Intro to Vue!"
+            }
+        })
+
+        let listVue = new Vue({
+            el: "#list-app",
+            data: {
+                costcoItems: ["noodles", "fruits", "chips", "bread"]
+            }
+        });
+
+        let ifVue = new Vue ({
+            el: "#if-app",
+            data: {
+                remember: false
+            },
+            methods: {
+                toggleMessage: function () {
+                    this.remember = !this.remember;
+                }
+            }
+        })
+        
+
+    </script>
+    
+</body>
+</html>
